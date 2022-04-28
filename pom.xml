@@ -47,9 +47,9 @@
     </build>
     <distributionManagement>
         <repository>
-            <id>internal.repo</id>
-            <name>Internal repo</name>
-            <url>file:///home/svahnen/Projects/networks/demo1/internal</url>
+            <id>target</id>
+            <name>Target Repo</name>
+            <url>file:///home/svahnen/Projects/networks/demo1/target</url>
         </repository>
     </distributionManagement>
 </project>

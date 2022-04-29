@@ -19,7 +19,7 @@ class Database {
         persons.add(new Person("Joe", "555-555-5559"));
         persons.add(new Person("Jack", "555-555-5560"));
         persons.add(new Person("Jill", "555-555-5561"));
-        persons.add(new Person("anna", "555-555-5562"));
+        persons.add(new Person("Anna", "555-555-5562"));
     }
 
     public List<Person> getPersonList() {

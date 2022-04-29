@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Objects;
 
-@WebServlet(name = "Phonebook", value = "/Phonebook")
-public class Phonebook extends HttpServlet {
+@WebServlet(name = "PhonebookSearch", value = "/PhonebookSearch")
+public class PhonebookSearch extends HttpServlet {
 
     Database databaseInstance = Database.getInstance();
 
@@ -16,19 +16,21 @@ public class Phonebook extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        PrintWriter p = response.getWriter();
-        p.println("searching for: " + request.getParameter("name"));
-        String name = request.getParameter("name");
-        for (Person person : Database.getInstance().getPersonList()) {
-            if (Objects.equals(person.getName(), name)) {
-                p.println(person.getName() + " " + person.getNr());
-            }
-        }
-        //http://localhost:8080/demo1-1.0-SNAPSHOT/Phonebook?name=Anna
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter p = response.getWriter();
+
+        String serverSideName = request.getParameter("inputName");
+
+        p.println("searching for: " + serverSideName);
+
+        for (Person person : Database.getInstance().getPersonList()) {
+            if (Objects.equals(person.getName(), serverSideName)) {
+                p.println(person.getName() + " " + person.getNr());
+            }
+        }
     }
 }
